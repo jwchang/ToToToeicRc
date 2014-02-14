@@ -11,6 +11,11 @@
 
 @interface SubViewController1 : UIViewController
 
+- (IBAction)btnOption1:(id)sender;
+- (IBAction)btnOption2:(id)sender;
+- (IBAction)btnOption3:(id)sender;
+- (IBAction)btnOption4:(id)sender;
+
 - (IBAction)btnHandler:(id)sender;
 
 @end

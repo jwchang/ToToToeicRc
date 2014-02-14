@@ -20,9 +20,14 @@
     int cp;
     UILabel *lblno;
     UILabel *lblQuestion;
-
-    UIButton *btnOption1;
-    UIButton *btnOption2;
+    UILabel *lblOption1;
+    UILabel *lblOption2;
+ 
+    UIImageView *imageView1;
+    UIImageView *imageView2;
+    UIImageView *imageView5;
+    UIImageView *imageView6;
+    NSString *userSelectedAnswer;
     
 }
 
@@ -117,6 +122,36 @@
     NSLog(@"button clicked");
 }
 
+- (void) hideImages {
+   
+    UIImage *imgCheck1 = [ UIImage imageNamed:@"OK.png"];  //38x40
+    imageView1 = [ [UIImageView alloc]  initWithImage:imgCheck1  ];
+    imageView1.frame = CGRectMake( 85, 500, imgCheck1.size.width, imgCheck1.size.height );
+    imageView1.hidden = YES;
+    [self.view addSubview:imageView1];
+    
+    
+    UIImage *imgCheck2 = [ UIImage imageNamed:@"OK.png"];  //38x40
+    imageView2 = [ [UIImageView alloc]  initWithImage:imgCheck2  ];
+    imageView2.frame = CGRectMake( 130, 500, imgCheck2.size.width, imgCheck2.size.height );
+    imageView2.hidden = YES;
+    [self.view addSubview:imageView2];
+    
+    UIImage *imgCheck5 = [ UIImage imageNamed:@"Obtn.png"];  // 정답시 표시할 이미지
+    imageView5 = [ [UIImageView alloc]  initWithImage:imgCheck5  ];
+    imageView5.frame = CGRectMake( 80, 280, imgCheck5.size.width, imgCheck5.size.height );
+    imageView5.hidden = YES;
+    [self.view addSubview:imageView5];
+    
+
+    UIImage *imgCheck6 = [ UIImage imageNamed:@"Xbtn.png"];  // 정답시 표시할 이미지
+    imageView6 = [ [UIImageView alloc]  initWithImage:imgCheck6  ];
+    imageView6.frame = CGRectMake( 80, 280, imgCheck6.size.width, imgCheck6.size.height );
+    imageView6.hidden = YES;
+    [self.view addSubview:imageView5];
+    
+}
+
 - (void) createLabelObjects {
 
     lblno = [ [UILabel alloc] initWithFrame:CGRectMake(40, 50, 280, 80)];
@@ -124,19 +159,21 @@
     lblQuestion.numberOfLines = 1;
     [self.view addSubview:lblno];
     
-    
     lblQuestion = [ [UILabel alloc] initWithFrame:CGRectMake(40, 80, 280, 160)];
     lblQuestion.text = @"";
     lblQuestion.numberOfLines = 4;
     [self.view addSubview:lblQuestion];
     
-    btnOption1 =  [[ UIButton alloc ] initWithFrame:CGRectMake(40, 260, 280, 30) ];
-    [self.view addSubview:btnOption1];
-    [ btnOption1   addTarget:self  action:@selector(optionTouchHandler:) forControlEvents:UIControlEventTouchUpInside ];
+    lblOption1 = [ [UILabel alloc] initWithFrame:CGRectMake(40, 280, 280, 30)];
+    lblOption1.text = @"";
+    lblOption1.numberOfLines = 1;
+    [self.view addSubview:lblOption1];
+
+    lblOption2 = [ [UILabel alloc] initWithFrame:CGRectMake(40, 310, 280, 30)];
+    lblOption2.text = @"";
+    lblOption2.numberOfLines = 1;
+    [self.view addSubview:lblOption2];
     
-    btnOption2 =  [[ UIButton alloc ] initWithFrame:CGRectMake(40, 290, 280, 30) ];
-    [self.view addSubview:btnOption2];
-    [ btnOption2   addTarget:self  action:@selector(optionTouchHandler:) forControlEvents:UIControlEventTouchUpInside ];
 }
 
 - (void) displayData:(int)idx {
@@ -146,8 +183,8 @@
     lblno.text = [NSString stringWithFormat:@"문제: %d", idx+1 ];
     lblQuestion.text = aQuestion.question;
     
-    [ btnOption1 setTitle: [ NSString stringWithFormat:@"(1) %@", aQuestion.option1 ]  forState:UIControlStateNormal] ;
-    [ btnOption2 setTitle: [ NSString stringWithFormat:@"(2) %@", aQuestion.option2 ]  forState:UIControlStateNormal] ;
+    lblOption1.text = [ NSString    stringWithFormat:@"(1) %@", aQuestion.option1];
+    lblOption2.text = [ NSString    stringWithFormat:@"(2) %@", aQuestion.option2];
     
 }
 
@@ -158,17 +195,80 @@
     
     data = [NSMutableArray array];
     cp = 0;
+    userSelectedAnswer = @"0";
     
     [ self copyDatabase ];
     [ self openDatabase ];
     [ self selectData];
     
     [ self createLabelObjects];
+    [ self hideImages ];
     [ self displayData:cp];
     
     [ self closeDatabase];
 
 }
+
+
+
+- (IBAction)btnOption1:(id)sender {
+
+    userSelectedAnswer = @"a";
+    
+    imageView1.hidden = NO;
+    imageView2.hidden = YES;
+}
+
+- (IBAction)btnOption2:(id)sender {
+
+    userSelectedAnswer = @"b";
+    
+    imageView1.hidden = YES;
+    imageView2.hidden = NO;
+}
+
+- (IBAction)btnOption3:(id)sender {
+     NSLog(@"option3 touched");
+}
+
+- (IBAction)btnOption4:(id)sender {
+     NSLog(@"option4 touched");
+}
+
+- (void) clearScreen {
+    imageView1.hidden = YES;
+    imageView2.hidden = YES;
+    imageView5.hidden = YES;
+    imageView6.hidden = YES;
+}
+
+- (void) checkUptheAnswer:(int) idx {
+ 
+    // 정답 비교
+    TestSet *aQuestion = [ data  objectAtIndex: idx];
+    
+    // NSLog(@" aquestion.answer = %@", aQuestion.answer );
+    if ( [ userSelectedAnswer   isEqual:aQuestion.answer ] ) {
+        NSLog(@"정답");
+        imageView5.hidden = NO;
+    } else {
+        NSLog(@"오답");
+        imageView6.hidden = NO;
+    }
+    
+}
+
+- (IBAction)btnHandler:(id)sender {
+    
+    [ self checkUptheAnswer:cp ];
+    cp = cp + 1;
+    if ( cp <= 19 ) {
+      [ self clearScreen   ];
+      [ self displayData:cp];
+    }
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -176,12 +276,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)btnHandler:(id)sender {
-    
-    cp = cp + 1;
-    if ( cp <= 19 ) {
-      [ self displayData:cp];
-    }
-    
-}
 @end
