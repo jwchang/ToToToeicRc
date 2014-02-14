@@ -11,4 +11,6 @@
 
 @interface SubViewController1 : UIViewController
 
+- (IBAction)btnHandler:(id)sender;
+
 @end

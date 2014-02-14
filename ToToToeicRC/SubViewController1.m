@@ -17,6 +17,12 @@
 @implementation SubViewController1 {
     NSMutableArray *data;
     sqlite3 *db;
+    int cp;
+    UILabel *lblno;
+    UILabel *lblQuestion;
+
+    UIButton *btnOption1;
+    UIButton *btnOption2;
     
 }
 
@@ -107,25 +113,41 @@
     sqlite3_close(db);
 }
 
-- (void) displayData {
+- (void) optionTouchHandler:(id) sender {
+    NSLog(@"button clicked");
+}
+
+- (void) createLabelObjects {
+
+    lblno = [ [UILabel alloc] initWithFrame:CGRectMake(40, 50, 280, 80)];
+    lblno.text = @"문제:";
+    lblQuestion.numberOfLines = 1;
+    [self.view addSubview:lblno];
     
-    TestSet *aQuestion = [ data  objectAtIndex: 1];
     
-    UILabel *lblQuestion = [ [UILabel alloc] initWithFrame:CGRectMake(40, 80, 280, 100)];
-    lblQuestion.text = aQuestion.question;
-    lblQuestion.numberOfLines = 3;
+    lblQuestion = [ [UILabel alloc] initWithFrame:CGRectMake(40, 80, 280, 160)];
+    lblQuestion.text = @"";
+    lblQuestion.numberOfLines = 4;
     [self.view addSubview:lblQuestion];
     
-    UILabel *lbOption1 = [ [UILabel alloc] initWithFrame:CGRectMake(40, 240, 280, 30)];
-    lbOption1.text = [ NSString stringWithFormat:@"(1) %@", aQuestion.option1 ];
-    lbOption1.numberOfLines = 1;
-    [self.view addSubview:lbOption1];
+    btnOption1 =  [[ UIButton alloc ] initWithFrame:CGRectMake(40, 260, 280, 30) ];
+    [self.view addSubview:btnOption1];
+    [ btnOption1   addTarget:self  action:@selector(optionTouchHandler:) forControlEvents:UIControlEventTouchUpInside ];
     
-    UILabel *lbOption2 = [ [UILabel alloc] initWithFrame:CGRectMake(40, 280, 280, 30)];
-    lbOption2.text = [ NSString stringWithFormat:@"(2) %@", aQuestion.option2 ];
-    lbOption2.numberOfLines = 1;
-    [self.view addSubview:lbOption2];
+    btnOption2 =  [[ UIButton alloc ] initWithFrame:CGRectMake(40, 290, 280, 30) ];
+    [self.view addSubview:btnOption2];
+    [ btnOption2   addTarget:self  action:@selector(optionTouchHandler:) forControlEvents:UIControlEventTouchUpInside ];
+}
+
+- (void) displayData:(int)idx {
     
+    TestSet *aQuestion = [ data  objectAtIndex: idx];
+    
+    lblno.text = [NSString stringWithFormat:@"문제: %d", idx+1 ];
+    lblQuestion.text = aQuestion.question;
+    
+    [ btnOption1 setTitle: [ NSString stringWithFormat:@"(1) %@", aQuestion.option1 ]  forState:UIControlStateNormal] ;
+    [ btnOption2 setTitle: [ NSString stringWithFormat:@"(2) %@", aQuestion.option2 ]  forState:UIControlStateNormal] ;
     
 }
 
@@ -135,14 +157,14 @@
 	// Do any additional setup after loading the view.
     
     data = [NSMutableArray array];
+    cp = 0;
     
     [ self copyDatabase ];
-    
     [ self openDatabase ];
-    
     [ self selectData];
- 
-    [ self displayData];
+    
+    [ self createLabelObjects];
+    [ self displayData:cp];
     
     [ self closeDatabase];
 
@@ -154,4 +176,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)btnHandler:(id)sender {
+    
+    cp = cp + 1;
+    if ( cp <= 19 ) {
+      [ self displayData:cp];
+    }
+    
+}
 @end
