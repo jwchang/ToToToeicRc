@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SubViewController1.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // NSLog(@" prepareForSegue  ");
+    
+    if ( ![ @"TESTORHISTORY" isEqualToString:segue.identifier ]) {
+    SubViewController1 *vc = ( SubViewController1 *) segue.destinationViewController;
+    vc.selectedSet = segue.identifier;
+    }
 }
 
 - (void)didReceiveMemoryWarning

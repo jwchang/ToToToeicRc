@@ -11,6 +11,8 @@
 
 @interface SubViewController1 : UIViewController
 
+@property (strong, nonatomic)  NSString *selectedSet;
+
 - (IBAction)btnOption1:(id)sender;
 - (IBAction)btnOption2:(id)sender;
 - (IBAction)btnOption3:(id)sender;

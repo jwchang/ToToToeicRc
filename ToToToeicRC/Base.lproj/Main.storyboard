@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DuR-7z-N0J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DuR-7z-N0J">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -23,7 +23,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="1o9-aQ-usA" kind="push" id="Pmh-Nk-Ufz"/>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set6" id="Pmh-Nk-Ufz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsC-LU-gZ2">
@@ -32,6 +32,9 @@
                                 <state key="normal" image="11.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set13" id="4hc-3a-o0m"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URD-wq-68M">
                                 <rect key="frame" x="146" y="511" width="188" height="57"/>
@@ -40,7 +43,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PsL-nZ-5He" kind="push" id="0DC-Ts-EvW"/>
+                                    <segue destination="PsL-nZ-5He" kind="push" identifier="TESTORHISTORY" id="0DC-Ts-EvW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9o-xY-vlG">
@@ -49,6 +52,9 @@
                                 <state key="normal" image="06.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set5" id="PSg-Dp-awQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCK-RE-o6i">
                                 <rect key="frame" x="-14" y="424" width="132" height="57"/>
@@ -56,6 +62,9 @@
                                 <state key="normal" image="05.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set4" id="HE6-Po-cNH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aT-Cp-mZB">
                                 <rect key="frame" x="55" y="123" width="105" height="43"/>
@@ -63,6 +72,9 @@
                                 <state key="normal" image="03.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set3" id="jv1-An-Xvt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xrf-5D-dbD">
                                 <rect key="frame" x="213" y="65" width="109" height="106"/>
@@ -70,6 +82,9 @@
                                 <state key="normal" image="07.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set1" id="cy8-T9-z8Y"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vib-2s-8FG">
                                 <rect key="frame" x="0.0" y="259" width="105" height="106"/>
@@ -77,6 +92,9 @@
                                 <state key="normal" image="04.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set7" id="mVQ-2V-6Z7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xk-jt-Bpz">
                                 <rect key="frame" x="54" y="482" width="105" height="86"/>
@@ -84,6 +102,9 @@
                                 <state key="normal" image="10.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set10" id="bMw-m7-0sb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRJ-k5-Zzc">
                                 <rect key="frame" x="106" y="259" width="109" height="106"/>
@@ -99,7 +120,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cdO-cx-MXv" kind="push" id="Plw-aG-QrS"/>
+                                    <segue destination="cdO-cx-MXv" kind="push" identifier="TESTORHISTORY" id="Plw-aG-QrS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dy5-uQ-69b">
@@ -108,6 +129,9 @@
                                 <state key="normal" image="02.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set2" id="slw-Yu-N3l"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zd4-iT-4Ii">
                                 <rect key="frame" x="0.0" y="123" width="56" height="135"/>
@@ -115,6 +139,9 @@
                                 <state key="normal" image="13.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set12" id="GFF-c0-Xwx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rZ-hZ-qcP">
                                 <rect key="frame" x="147" y="123" width="81" height="135"/>
@@ -122,6 +149,9 @@
                                 <state key="normal" image="12.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set11" id="NHO-lM-O5p"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKT-Wn-R1h">
                                 <rect key="frame" x="200" y="172" width="81" height="135"/>
@@ -129,6 +159,9 @@
                                 <state key="normal" image="16.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set15" id="1YT-82-Bfl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wN8-ig-00o">
                                 <rect key="frame" x="253" y="172" width="81" height="135"/>
@@ -136,6 +169,9 @@
                                 <state key="normal" image="14.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set14" id="EqV-JM-Mpd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFa-WR-Y6B">
                                 <rect key="frame" x="93" y="354" width="81" height="140"/>
@@ -143,6 +179,9 @@
                                 <state key="normal" image="09.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set9" id="0Bq-Em-3mc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brY-IS-wOO">
                                 <rect key="frame" x="-1" y="482" width="56" height="86"/>
@@ -150,6 +189,9 @@
                                 <state key="normal" image="08.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1o9-aQ-usA" kind="push" identifier="set8" id="hmQ-uN-ezR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -163,7 +205,7 @@
         <!--Sub View Controller1 - 연습문제-->
         <scene sceneID="raK-t1-5Vq">
             <objects>
-                <viewController id="1o9-aQ-usA" customClass="SubViewController1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SidSubView1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1o9-aQ-usA" customClass="SubViewController1" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2bO-aC-mTB"/>
                         <viewControllerLayoutGuide type="bottom" id="AjF-nR-tN6"/>
@@ -319,4 +361,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="1YT-82-Bfl"/>
+    </inferredMetricsTieBreakers>
 </document>

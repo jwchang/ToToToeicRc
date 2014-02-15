@@ -31,6 +31,8 @@
     
 }
 
+@synthesize selectedSet;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -72,7 +74,9 @@
 
 - (void) selectData {
     // 쿼리 준비
-    NSString *queryString = @"SELECT no, gubun, question, sub, subtype, option1, option2, option3, option4, mc, answer, comment  FROM toeicrc WHERE gubun = 'set1' ";
+    
+    NSString *queryString = [ NSString stringWithFormat: @"SELECT no, gubun, question, sub, subtype, option1, option2, option3, option4, mc, answer, comment  FROM toeicrc WHERE gubun = '%@' ", selectedSet ];
+    
     sqlite3_stmt *stmt;
     int ret = sqlite3_prepare_v2(db, [queryString UTF8String ], -1, &stmt, NULL);
     
@@ -99,7 +103,7 @@
         one.gubun     = [NSString stringWithCString:gubun encoding:NSUTF8StringEncoding  ];
         one.question = [NSString stringWithCString:question  encoding:NSUTF8StringEncoding  ];
         //one.sub      = [NSString stringWithCString:sub  encoding:NSUTF8StringEncoding  ];
-        one.subtype   = [NSString stringWithCString:subtype  encoding:NSUTF8StringEncoding  ];
+        //one.subtype   = [NSString stringWithCString:subtype  encoding:NSUTF8StringEncoding  ];
         one.option1   = [NSString stringWithCString:option1  encoding:NSUTF8StringEncoding  ];
         one.option2   = [NSString stringWithCString:option2  encoding:NSUTF8StringEncoding  ];
         //one.option3   = [NSString stringWithCString:option3  encoding:NSUTF8StringEncoding  ];
@@ -196,6 +200,8 @@
     data = [NSMutableArray array];
     cp = 0;
     userSelectedAnswer = @"0";
+    
+    NSLog(@"selected= %@", selectedSet);
     
     [ self copyDatabase ];
     [ self openDatabase ];
