@@ -152,7 +152,7 @@
     imageView6 = [ [UIImageView alloc]  initWithImage:imgCheck6  ];
     imageView6.frame = CGRectMake( 80, 280, imgCheck6.size.width, imgCheck6.size.height );
     imageView6.hidden = YES;
-    [self.view addSubview:imageView5];
+    [self.view addSubview:imageView6];
     
 }
 
@@ -269,7 +269,8 @@
     [ self checkUptheAnswer:cp ];
     cp = cp + 1;
     if ( cp <= 19 ) {
-      [ self clearScreen   ];
+      // 1초 지연후에 화면를 클리어한다.
+      [ self performSelector:@selector(clearScreen) withObject:nil afterDelay:0.5 ];
       [ self displayData:cp];
     }
     
